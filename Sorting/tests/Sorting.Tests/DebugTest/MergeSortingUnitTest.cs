@@ -3,8 +3,10 @@ using Xunit;
 using FluentAssertions;
 using BenchmarkDotNet.Running;
 
-namespace Sorting.Tests
+namespace Sorting.Tests.DebugTest
 {
+
+#if DEBUG
     public class MergeSortingUnitTest
     {
         [Fact]
@@ -18,4 +20,6 @@ namespace Sorting.Tests
             array.Should().Equal(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         }
     }
+#endif
+
 }

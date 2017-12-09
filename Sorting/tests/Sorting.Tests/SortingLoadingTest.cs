@@ -30,6 +30,13 @@ namespace Sorting.Tests
         }
 
         [Benchmark]
+        public void HeapSorting_Sort()
+        {
+            ISorting testClass = new HeapSorting();
+            testClass.Sort(SortedData);
+        }
+
+        [Benchmark]
         public void InsertionSorting_Sort()
         {
             ISorting testClass = new InsertionSorting();

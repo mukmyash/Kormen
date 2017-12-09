@@ -10,12 +10,15 @@ Processor=Intel Core i3 CPU M 380 2.53GHz, ProcessorCount=4
 ```
 |                Method | ArrayLength |          Mean |       Error |      StdDev |
 |---------------------- |------------ |--------------:|------------:|------------:|
-| **InsertionSorting** |         **100** |      **3.070 us** |   **0.0579 us** |   **0.0667 us** |
-|     MergeSorting |         100 |     22.102 us |   0.2084 us |   0.1950 us |
-|            Array.Sort |         100 |      1.046 us |   0.0222 us |   0.0640 us |
-| **InsertionSorting** |        **1000** |     **31.113 us** |   **0.1672 us** |   **0.1396 us** |
-|     MergeSorting |        1000 |    290.897 us |   1.0390 us |   0.8676 us |
-|            Array.Sort |        1000 |     14.063 us |   0.2783 us |   0.4413 us |
-| **InsertionSorting** |       **10000** | **58,223.096 us** | **584.8812 us** | **488.4022 us** |
-|     MergeSorting |       10000 |  3,589.097 us |  16.7026 us |  15.6236 us |
-|            Array.Sort |       10000 |    206.168 us |   3.9494 us |   3.6942 us |
+|      **HeapSorting_Sort** |         **100** |     **41.401 us** |   **0.2377 us** |   **0.2107 us** |
+| InsertionSorting_Sort |         100 |      3.106 us |   0.0616 us |   0.0710 us |
+|     MergeSorting_Sort |         100 |     23.408 us |   0.1210 us |   0.1072 us |
+|            Array_Sort |         100 |      1.074 us |   0.0258 us |   0.0761 us |
+|      **HeapSorting_Sort** |        **1000** |    **659.392 us** |   **3.7994 us** |   **3.5540 us** |
+| InsertionSorting_Sort |        1000 |     32.244 us |   0.3797 us |   0.3171 us |
+|     MergeSorting_Sort |        1000 |    286.991 us |   0.9870 us |   0.7706 us |
+|            Array_Sort |        1000 |     13.918 us |   0.2728 us |   0.4328 us |
+|      **HeapSorting_Sort** |       **10000** | **10,056.281 us** |  **82.0531 us** |  **76.7525 us** |
+| InsertionSorting_Sort |       10000 | 60,381.216 us | 659.9560 us | 617.3232 us |
+|     MergeSorting_Sort |       10000 |  3,557.219 us |  18.1153 us |  16.9451 us |
+|            Array_Sort |       10000 |    202.396 us |   2.3374 us |   2.0720 us |
