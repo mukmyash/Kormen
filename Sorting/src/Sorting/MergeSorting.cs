@@ -12,54 +12,44 @@ namespace Sorting
             mergeSort(collection, 1, collection.Count);
         }
 
-        private void mergeSort<T>(IList<T> collection, int p, int r)
+        private void mergeSort<T>(IList<T> collection, int lo, int hi)
             where T : IComparable
         {
-            if (p < r)
+            if (lo < hi)
             {
-                int q = (r + p) / 2;
-                mergeSort(collection, p, q);
-                mergeSort(collection, q + 1, r);
-                merge(collection, p, q, r);
+                int q = (hi + lo) / 2;
+                mergeSort(collection, lo, q);
+                mergeSort(collection, q + 1, hi);
+                merge(collection, lo, q, hi);
             }
         }
 
-        private void merge<T>(IList<T> collection, int p, int q, int r)
+        private void merge<T>(IList<T> collection, int lo, int mid, int hi)
             where T : IComparable
         {
 
-            int lCount = q - p + 1;
-            int rCount = r - q;
+            int lCount = mid - lo + 1;
+            int rCount = hi - mid;
             T[] leftArray = new T[lCount];
             T[] rightArray = new T[rCount];
 
             for (int i = 0; i < lCount; i++)
-                leftArray[i] = collection[p + i - 1];
+                leftArray[i] = collection[lo + i - 1];
 
             for (int i = 0; i < rCount; i++)
-                rightArray[i] = collection[q + i];
+                rightArray[i] = collection[mid + i];
 
 
             int lI = 0, rI = 0;
-            for (int k = p - 1; k < r; k++)
-            {
+            for (int k = lo - 1; k < hi; k++)
                 if (rI >= rCount)
-                {
-                    collection[k] = leftArray[lI]; lI++;
-                }
+                { collection[k] = leftArray[lI]; lI++; }
                 else if (lI >= lCount)
-                {
-                    collection[k] = rightArray[rI]; rI++;
-                }
+                { collection[k] = rightArray[rI]; rI++; }
                 else if (leftArray[lI].CompareTo(rightArray[rI]) <= 0)
-                {
-                    collection[k] = leftArray[lI]; lI++;
-                }
+                { collection[k] = leftArray[lI]; lI++; }
                 else
-                {
-                    collection[k] = rightArray[rI]; rI++;
-                }
-            }
+                { collection[k] = rightArray[rI]; rI++; }
         }
     }
 }

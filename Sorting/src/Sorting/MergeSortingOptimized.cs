@@ -33,28 +33,14 @@ namespace Sorting
 
             int i = lo, j = mid + 1;
             for (int k = lo; k <= hi; k++)
-            {
                 if (i > mid)
-                {
-                    collection[k] = buf[j];
-                    j++;
-                }
+                { collection[k] = buf[j]; j++; }
                 else if (j > hi)
-                {
-                    collection[k] = buf[i];
-                    i++;
-                }
+                { collection[k] = buf[i]; i++; }
                 else if (buf[j].CompareTo(buf[i]) < 0)
-                {
-                    collection[k] = buf[j];
-                    j++;
-                }
+                { collection[k] = buf[j]; j++; }
                 else
-                {
-                    collection[k] = buf[i];
-                    i++;
-                }
-            }
+                { collection[k] = buf[i]; i++; }
         }
     }
 }

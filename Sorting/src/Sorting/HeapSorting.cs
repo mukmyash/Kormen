@@ -20,9 +20,7 @@ namespace Sorting
         private void BuildMaxHeap<T>(IList<T> collection) where T : IComparable
         {
             for (int i = collection.Count / 2 - 1; i >= 0; i--)
-            {
                 MaxHeapify(collection, i, collection.Count);
-            }
         }
 
         private void MaxHeapify<T>(IList<T> collection, int i, int heapSize) where T : IComparable

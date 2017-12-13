@@ -38,13 +38,8 @@ namespace Sorting
             var x = collection[r];
             int i = p - 1;
             for (int j = p; j < r; j++)
-            {
                 if (collection[j].CompareTo(x) <= 0)
-                {
-                    i++;
-                    collection.Swap(i, j);
-                }
-            }
+                { i++; collection.Swap(i, j); }
             collection.Swap(i + 1, r);
 
             return i + 1;

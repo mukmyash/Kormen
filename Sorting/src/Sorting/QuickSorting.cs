@@ -13,31 +13,29 @@ namespace Sorting
             quicksort(collection, 0, collection.Count - 1);
         }
 
-        private void quicksort<T>(IList<T> collection, int p, int r)
+        private void quicksort<T>(IList<T> collection, int lo, int hi)
             where T : IComparable
         {
-            if (p < r)
+            if (lo < hi)
             {
-                var q = partition(collection, p, r);
-                quicksort(collection, p, q - 1);
-                quicksort(collection, q + 1, r);
+                var q = partition(collection, lo, hi);
+                quicksort(collection, lo, q - 1);
+                quicksort(collection, q + 1, hi);
             }
         }
 
-        private int partition<T>(IList<T> collection, int p, int r)
+        private int partition<T>(IList<T> collection, int lo, int hi)
             where T : IComparable
         {
-            var x = collection[r];
-            int i = p - 1;
-            for (int j = p; j < r; j++)
-            {
+            var x = collection[hi];
+            int i = lo - 1;
+            for (int j = lo; j < hi; j++)
                 if (collection[j].CompareTo(x) <= 0)
                 {
                     i++;
                     collection.Swap(i, j);
                 }
-            }
-            collection.Swap(i + 1, r);
+            collection.Swap(i + 1, hi);
 
             return i + 1;
         }
