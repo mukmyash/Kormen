@@ -12,7 +12,11 @@ namespace Sorting.Tests
         {
             yield return new object[] { new InsertionSorting() };
             yield return new object[] { new MergeSorting() };
+            yield return new object[] { new MergeSortingOptimized() };
+            
             yield return new object[] { new HeapSorting() };
+            yield return new object[] { new QuickSorting() };
+            yield return new object[] { new RandQuickSorting() };
         }
 
         [Theory]
@@ -28,8 +32,9 @@ namespace Sorting.Tests
             }
             testClass.Sort(array);
 
-            for (int i=0;i<array.Length-1;i++){
-                Assert.True(array[i]<=array[i+1]);
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                Assert.True(array[i] <= array[i + 1]);
             }
         }
 
@@ -37,10 +42,10 @@ namespace Sorting.Tests
         [MemberData(nameof(GetSortingClass))]
         public void Sorting_Sort__ReverseSequince(ISorting testClass)
         {
-            int[] array = new int[] { 9,8,7,6,5,4,3,2,1 };
+            int[] array = new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
             testClass.Sort(array);
 
-            array.Should().Equal( 1, 2, 3, 4, 5, 6, 7, 8, 9);
+            array.Should().Equal(1, 2, 3, 4, 5, 6, 7, 8, 9);
         }
     }
 }

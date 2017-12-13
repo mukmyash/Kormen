@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sorting.Extension;
 
 namespace Sorting
 {
@@ -11,9 +12,7 @@ namespace Sorting
             {
                 for (int j = i; j > 0 && collection[j - 1].CompareTo(collection[j]) > 0; j--)
                 {
-                    T tmp = collection[j];
-                    collection[j] = collection[j - 1];
-                    collection[j - 1] = tmp;
+                    collection.Swap(j, j - 1);
                 }
             }
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sorting.Extension;
 
 namespace Sorting
 {
@@ -11,7 +12,7 @@ namespace Sorting
 
             for (int i = collection.Count - 1; i > 0; i--)
             {
-                swapItem(collection, i, 0);
+                collection.Swap(i, 0);
                 MaxHeapify(collection, 0, i);
             }
         }
@@ -39,16 +40,9 @@ namespace Sorting
 
             if (largesIndex != i)
             {
-                swapItem(collection, largesIndex, i);
+                collection.Swap(largesIndex, i);
                 MaxHeapify(collection, largesIndex, heapSize);
             }
-        }
-
-        private void swapItem<T>(IList<T> collection, int i1, int i2)
-        {
-            var tmp = collection[i1];
-            collection[i1] = collection[i2];
-            collection[i2] = tmp;
         }
     }
 }

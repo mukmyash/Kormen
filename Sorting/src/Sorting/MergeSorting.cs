@@ -43,7 +43,15 @@ namespace Sorting
             int lI = 0, rI = 0;
             for (int k = p - 1; k < r; k++)
             {
-                if ((rI == rCount && lI != lCount) || (lI != lCount && rI != rCount && leftArray[lI].CompareTo(rightArray[rI]) <= 0))
+                if (rI >= rCount)
+                {
+                    collection[k] = leftArray[lI]; lI++;
+                }
+                else if (lI >= lCount)
+                {
+                    collection[k] = rightArray[rI]; rI++;
+                }
+                else if (leftArray[lI].CompareTo(rightArray[rI]) <= 0)
                 {
                     collection[k] = leftArray[lI]; lI++;
                 }

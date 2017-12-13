@@ -30,6 +30,20 @@ namespace Sorting.Tests
         }
 
         [Benchmark]
+        public void RandQuickSorting_Sort()
+        {
+            ISorting testClass = new RandQuickSorting();
+            testClass.Sort(SortedData);
+        }
+
+        [Benchmark]
+        public void QuickSorting_Sort()
+        {
+            ISorting testClass = new QuickSorting();
+            testClass.Sort(SortedData);
+        }
+
+        [Benchmark]
         public void HeapSorting_Sort()
         {
             ISorting testClass = new HeapSorting();
@@ -40,6 +54,13 @@ namespace Sorting.Tests
         public void InsertionSorting_Sort()
         {
             ISorting testClass = new InsertionSorting();
+            testClass.Sort(SortedData);
+        }
+ 
+        [Benchmark]
+        public void MergeSortingOptimized_Sort()
+        {
+            ISorting testClass = new MergeSortingOptimized();
             testClass.Sort(SortedData);
         }
 
