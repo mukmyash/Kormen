@@ -9,7 +9,7 @@ namespace Sorting
         public void Sort<T>(IList<T> collection)
             where T : IComparable
         {
-            mergeSort(collection, 1, collection.Count);
+            mergeSort(collection, 0, collection.Count - 1);
         }
 
         private void mergeSort<T>(IList<T> collection, int lo, int hi)
@@ -34,14 +34,14 @@ namespace Sorting
             T[] rightArray = new T[rCount];
 
             for (int i = 0; i < lCount; i++)
-                leftArray[i] = collection[lo + i - 1];
+                leftArray[i] = collection[lo + i];
 
             for (int i = 0; i < rCount; i++)
-                rightArray[i] = collection[mid + i];
+                rightArray[i] = collection[mid + i + 1];
 
 
             int lI = 0, rI = 0;
-            for (int k = lo - 1; k < hi; k++)
+            for (int k = lo; k <= hi; k++)
                 if (rI >= rCount)
                 { collection[k] = leftArray[lI]; lI++; }
                 else if (lI >= lCount)
