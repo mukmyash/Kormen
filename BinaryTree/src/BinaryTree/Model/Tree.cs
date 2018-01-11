@@ -78,8 +78,10 @@ namespace BinaryTree
 
         private void Transplant(TreeNode<T> tree, TreeNode<T> delNode, TreeNode<T> upNode)
         {
-            if (delNode.ParentNode == null)
+            if (delNode.ParentNode == null){
                 Root = upNode;
+                upNode.ParentNode = null;
+            }
             else
             {
                 if (delNode == delNode.ParentNode.LeftNode)
@@ -115,6 +117,55 @@ namespace BinaryTree
                 tree = tree.RightNode;
             }
             return tree;
+        }
+
+        public void RightRotation(T value)
+        {
+            RightRotation(Search(value));
+        }
+        public void RightRotation(TreeNode<T> node)
+        {
+            var y = node.LeftNode;
+            node.LeftNode = y.RightNode;
+
+            if (node.ParentNode == null)
+            {
+                y.ParentNode = node.ParentNode;
+                Root = y;
+            }
+            else
+            {
+                if (node == node.ParentNode.LeftNode)
+                    node.ParentNode.LeftNode = y;
+                else
+                    node.ParentNode.RightNode = y;
+            }
+            y.RightNode = node;
+        }
+
+        public void LeftRotation(T value)
+        {
+            LeftRotation(Search(value));
+        }
+
+        public void LeftRotation(TreeNode<T> node)
+        {
+            var y = node.RightNode;
+            node.RightNode = y.LeftNode;
+
+            if (node.ParentNode == null)
+            {
+                y.ParentNode = node.ParentNode;
+                Root = y;
+            }
+            else
+            {
+                if (node == node.ParentNode.LeftNode)
+                    node.ParentNode.LeftNode = y;
+                else
+                    node.ParentNode.RightNode = y;
+            }
+            y.LeftNode = node;
         }
     }
 }
