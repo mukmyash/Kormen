@@ -31,6 +31,7 @@ namespace BinaryTree
         }
 
         public T Value { get; set; }
+        public bool IsRed { get; set; }
 
     }
 }

@@ -6,7 +6,6 @@ namespace BinaryTree
     {
         public TreeNode<T> Root { get; set; }
 
-
         public void Insert(T value)
         {
             Insert(Root, value);
@@ -76,7 +75,7 @@ namespace BinaryTree
             }
         }
 
-        private void Transplant(TreeNode<T> tree, TreeNode<T> delNode, TreeNode<T> upNode)
+        protected void Transplant(TreeNode<T> tree, TreeNode<T> delNode, TreeNode<T> upNode)
         {
             if (delNode.ParentNode == null){
                 Root = upNode;
